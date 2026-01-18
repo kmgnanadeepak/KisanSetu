@@ -1,0 +1,226 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* KisanSetu Design System - Agricultural Green & White Theme */
+
+@layer base {
+  :root {
+    /* Primary agricultural green - #017B08 converted to HSL */
+    --primary: 123 98% 24%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Light green variations */
+    --primary-light: 123 60% 45%;
+    --primary-lighter: 123 40% 85%;
+    --primary-glow: 123 70% 35%;
+    
+    /* Background and surfaces */
+    --background: 0 0% 100%;
+    --foreground: 120 10% 15%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 120 10% 15%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 120 10% 15%;
+    
+    /* Secondary - soft earthy tones */
+    --secondary: 120 20% 96%;
+    --secondary-foreground: 120 10% 25%;
+    
+    /* Muted surfaces */
+    --muted: 120 15% 95%;
+    --muted-foreground: 120 5% 45%;
+    
+    /* Accent - warm harvest gold */
+    --accent: 45 90% 55%;
+    --accent-foreground: 45 80% 15%;
+    
+    /* Status colors */
+    --success: 123 70% 35%;
+    --success-foreground: 0 0% 100%;
+    
+    --warning: 45 95% 50%;
+    --warning-foreground: 45 90% 15%;
+    
+    --destructive: 0 72% 50%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Borders and inputs */
+    --border: 120 20% 88%;
+    --input: 120 20% 88%;
+    --ring: 123 98% 24%;
+    
+    --radius: 0.75rem;
+    
+    /* Sidebar */
+    --sidebar-background: 120 20% 98%;
+    --sidebar-foreground: 120 10% 25%;
+    --sidebar-primary: 123 98% 24%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 120 20% 94%;
+    --sidebar-accent-foreground: 120 10% 25%;
+    --sidebar-border: 120 15% 90%;
+    --sidebar-ring: 123 98% 24%;
+    
+    /* Custom gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(123 98% 24%) 0%, hsl(123 70% 35%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(120 30% 97%) 0%, hsl(0 0% 100%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(120 20% 98%) 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(120 20% 20% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(120 20% 20% / 0.1), 0 2px 4px -2px hsl(120 20% 20% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(120 20% 20% / 0.1), 0 4px 6px -4px hsl(120 20% 20% / 0.1);
+    --shadow-glow: 0 0 20px hsl(123 98% 24% / 0.15);
+  }
+
+  .dark {
+    --primary: 123 70% 45%;
+    --primary-foreground: 0 0% 100%;
+    
+    --background: 120 15% 8%;
+    --foreground: 120 10% 95%;
+    
+    --card: 120 15% 12%;
+    --card-foreground: 120 10% 95%;
+    
+    --popover: 120 15% 12%;
+    --popover-foreground: 120 10% 95%;
+    
+    --secondary: 120 15% 18%;
+    --secondary-foreground: 120 10% 90%;
+    
+    --muted: 120 15% 18%;
+    --muted-foreground: 120 10% 60%;
+    
+    --accent: 45 80% 50%;
+    --accent-foreground: 45 90% 10%;
+    
+    --destructive: 0 62% 40%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 120 15% 20%;
+    --input: 120 15% 20%;
+    --ring: 123 70% 45%;
+    
+    --sidebar-background: 120 15% 10%;
+    --sidebar-foreground: 120 10% 90%;
+    --sidebar-primary: 123 70% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 120 15% 15%;
+    --sidebar-accent-foreground: 120 10% 90%;
+    --sidebar-border: 120 15% 18%;
+    --sidebar-ring: 123 70% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  /* Hero section styling */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  /* Card with subtle gradient */
+  .card-gradient {
+    background: var(--gradient-card);
+  }
+  
+  /* Primary gradient button */
+  .btn-primary-gradient {
+    background: var(--gradient-primary);
+    @apply text-white shadow-md transition-all duration-300;
+  }
+  
+  .btn-primary-gradient:hover {
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-1px);
+  }
+  
+  /* Glass effect */
+  .glass {
+    @apply bg-white/80 backdrop-blur-md border border-white/20;
+  }
+  
+  /* Leaf decoration animation */
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(3deg); }
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  /* Fade in animation */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  
+  /* Stagger children */
+  .stagger-children > * {
+    @apply animate-fade-in;
+  }
+  
+  .stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+  .stagger-children > *:nth-child(2) { animation-delay: 100ms; }
+  .stagger-children > *:nth-child(3) { animation-delay: 200ms; }
+  .stagger-children > *:nth-child(4) { animation-delay: 300ms; }
+  .stagger-children > *:nth-child(5) { animation-delay: 400ms; }
+  
+  /* Weather widget styling */
+  .weather-card {
+    @apply bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl p-4;
+  }
+  
+  /* Status badges */
+  .status-pending {
+    @apply bg-amber-100 text-amber-800 border-amber-200;
+  }
+  
+  .status-accepted {
+    @apply bg-blue-100 text-blue-800 border-blue-200;
+  }
+  
+  .status-completed {
+    @apply bg-green-100 text-green-800 border-green-200;
+  }
+  
+  .status-rejected {
+    @apply bg-red-100 text-red-800 border-red-200;
+  }
+}
+
+@layer utilities {
+  /* Text gradient */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-primary);
+  }
+  
+  /* Smooth scrolling */
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+}
